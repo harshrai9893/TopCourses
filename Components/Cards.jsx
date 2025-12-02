@@ -14,10 +14,10 @@ const Cards = ({courses}) => {
         return allCourses;
     }
   return (
-    <div>
-        {!courses ? (
-            <div>
-                <p>No Data Found</p>
+    <div className="w-11/12 mx-auto flex flex-wrap justify-center gap-6 mb-10">
+      {!courses ? (
+            <div className="text-gray-300 text-lg">
+                No Data Found
             </div>
         ):(getCourses().map((course)=>{
 
