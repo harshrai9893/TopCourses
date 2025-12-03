@@ -9,7 +9,7 @@ export const filterData=[
     },
      {
         id:"3",
-        title:"Buisness"
+        title:"Business"
     },
      {
         id:"4",

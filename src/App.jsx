@@ -11,6 +11,7 @@ const App = () => {
 
   const[Courses,setCourses]=useState([]);
   const[loading,setLoading]= useState(false);
+  const[category,setCategory]= useState(filterData[0].title);
 
   useEffect(()=>{
     async function fetchData (){
@@ -18,6 +19,8 @@ const App = () => {
       try{
         const response = await fetch(apiUrl);
         const output= await response.json();
+        console.log("API output:", output);
+        console.log("output.data:", output.data);
         // save data into a variable
         setCourses(output.data);
       }
@@ -38,15 +41,18 @@ const App = () => {
 
        <div className="">
         <div >
-         <Filter
-       filterData={filterData}/>
+          <Filter
+            filterData={filterData}
+             category={category}
+              setCategory={setCategory}/>
         </div>
        
         <div className='w-11/12 max-w-[1200px] mx-auto flex  flex-wrap justify-center 
         items-center min-h-[50vh]'>
          {
           loading?(<Spinner/>):(<Cards
-       courses={Courses}/>)
+       courses={Courses}
+       category={category}/>)
          }
         </div>
        </div>
